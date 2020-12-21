@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import PlayerContext from "../context/playerContext";
 
-const AddPlayer = ({ addPlayer }) => {
+const AddPlayer = () => {
+  const { addPlayer } = useContext(PlayerContext);
+
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {

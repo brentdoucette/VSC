@@ -1,14 +1,11 @@
-import Counter from "./Counter";
+import { useContext } from "react";
 
-const Players = ({
-  id,
-  index,
-  score,
-  name,
-  deletePlayer,
-  changeScore,
-  isHighScore,
-}) => {
+import Counter from "./Counter";
+import PlayerContext from "../context/playerContext";
+
+const Players = ({ name, id, score, index, isHighScore }) => {
+  const { deletePlayer } = useContext(PlayerContext);
+
   return (
     <div className="players">
       <span onClick={() => deletePlayer(id)}>X</span>
@@ -18,10 +15,9 @@ const Players = ({
         ) : (
           <i className="fas fa-crown" />
         )}
-
         {name}
       </h3>
-      <Counter score={score} changeScore={changeScore} index={index} />
+      <Counter score={score} index={index} />
     </div>
   );
 };

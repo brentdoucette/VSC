@@ -1,6 +1,12 @@
+import React, { useContext } from "react";
+
 import Stopwatch from "./Stopwatch";
 
-const Header = ({ players }) => {
+import PlayerContext from "../context/playerContext";
+
+const Header = () => {
+  const { players } = useContext(PlayerContext);
+
   return (
     <div className="header">
       <ul>
