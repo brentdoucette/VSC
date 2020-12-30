@@ -3,7 +3,12 @@ const giphyReducer = (state, action) => {
     case "PERFORM_SEARCH":
       return {
         ...state,
-        gifs: [action.payload],
+        gifs: action.payload,
+        loading: false,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
         loading: false,
       };
 
@@ -11,3 +16,5 @@ const giphyReducer = (state, action) => {
       return state;
   }
 };
+
+export default giphyReducer;

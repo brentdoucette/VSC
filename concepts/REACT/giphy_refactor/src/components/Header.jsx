@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-const Header = ({ performSearch, setLoading }) => {
+import GiphyContext from "../context/giphyContext";
+
+const Header = () => {
   const [value, setValue] = useState("");
+
+  const { performSearch, setLoading } = useContext(GiphyContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoading();
     performSearch(value);
     e.currentTarget.reset();
   };

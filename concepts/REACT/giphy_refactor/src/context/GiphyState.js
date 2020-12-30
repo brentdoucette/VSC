@@ -7,6 +7,7 @@ const GiphyState = (props) => {
   const initialState = {
     gifs: [],
     loading: true,
+    value: "",
   };
 
   const [state, dispatch] = useReducer(GiphyReducer, initialState);
@@ -23,12 +24,19 @@ const GiphyState = (props) => {
     });
   };
 
+  const setLoading = () => {
+    dispatch({
+      type: "SET_LOADING",
+    });
+  };
+
   return (
     <GiphyContext.Provider
       value={{
         gifs: state.gifs,
         loading: state.loading,
         performSearch,
+        setLoading,
       }}
     >
       {props.children}

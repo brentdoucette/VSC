@@ -1,8 +1,14 @@
+import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
 
 import Gif from "./Gif";
 
-const GifList = ({ gifs }) => {
+import GiphyContext from "../context/giphyContext";
+
+const GifList = () => {
+  const { gifs } = useContext(GiphyContext);
+
   if (gifs.length === 0) {
     return <h1 id="error">Sorry.There are no GIFs that match your search.</h1>;
   }
